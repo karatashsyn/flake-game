@@ -222,8 +222,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3626979373156755088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7804b330d7dd2847bc42f48bbb9b974, type: 3}
+  m_Script: {fileID: 11500000, guid: 6146b76f1e5bb96408857c5aef7e3eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
   levelText: {fileID: 3626979371992550944}
+  transition: {fileID: 5713149319871009559, guid: 430e6e2200379044eb253ba5f44e1757, type: 3}

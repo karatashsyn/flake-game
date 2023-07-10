@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class GameLogicScript : MonoBehaviour
 {
-    public flakeScript flake;
+    public movementScript flake;
 
     private void Start()
     {
-        flake = GameObject.FindGameObjectWithTag("Head").GetComponent<flakeScript>();
+        flake = GameObject.FindGameObjectWithTag("Head").GetComponent<movementScript>();
         GAME_STATE = State.PLAYING;
     }
 
