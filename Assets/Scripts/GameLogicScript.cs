@@ -11,11 +11,21 @@ public class GameLogicScript : MonoBehaviour
     private void Start()
     {
         flake = GameObject.FindGameObjectWithTag("Head").GetComponent<movementScript>();
-        GAME_STATE = State.PLAYING;
+        flake.headRigidBody.Sleep();
+        GAME_STATE = State.INITIAL;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space) == true && GAME_STATE == State.INITIAL) {
+            flake.initializeSnake();
+            GAME_STATE = State.PLAYING;
+        }
+        
     }
 
 
-    
+
 
     public enum State {
         INITIAL=0, PLAYING=1, PAUSED=2, FAILED=3

@@ -14,7 +14,7 @@ public class movementScript : MonoBehaviour
     public float MAX_Y = 400f;
     public float MIN_Y = -400f;
     public List<GameObject> bodySegments;
-    public float segmentDelay = 0.002f;
+    public float segmentDelay = 0.008f;
     public Coroutine followCoroutine;
     private int numOfBodySegments = 200;
     public GameLogicScript gameLogic;
@@ -80,11 +80,17 @@ public class movementScript : MonoBehaviour
         followCoroutine = StartCoroutine(FollowSegments());
     }
 
+    public void initializeSnake() {
+
+        headRigidBody.velocity = new Vector2(SPEED_X, 0);
+        followCoroutine = StartCoroutine(FollowSegments());
+    }
+
     // Start is called before the first frame update
     void Start()
 
     {
-        this.segmentDelay = 0.008f;
+        headRigidBody.Sleep();
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<GameLogicScript>();
         bodySegments.Capacity = numOfBodySegments;
         bodySegments.Add(GameObject.Find("Head"));
@@ -93,9 +99,6 @@ public class movementScript : MonoBehaviour
             bodySegments.Add(GameObject.Find("Segment (" + (i) + ")"));
         }
         bodySegments.Add(GameObject.Find("Tail"));
-
-        headRigidBody.velocity = new Vector2(SPEED_X, 0);
-        followCoroutine = StartCoroutine(FollowSegments());
     }
 
 
