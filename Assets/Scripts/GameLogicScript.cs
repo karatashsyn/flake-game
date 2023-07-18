@@ -11,7 +11,7 @@ public class GameLogicScript : MonoBehaviour
     private void Start()
     {
         flake = GameObject.FindGameObjectWithTag("Head").GetComponent<movementScript>();
-        flake.headRigidBody.Sleep();
+       
         GAME_STATE = State.INITIAL;
     }
 
